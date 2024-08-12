@@ -1,0 +1,272 @@
+[
+    {
+        "id": "asst_ON4xBt9J6iDhsAqL0jtZhKNm",
+        "created_at": 1723430901,
+        "description": "Generates comic book stories using OpenAI API",
+        "instructions": "# StoryGeneratorAgent Instructions\n\nDear StoryGeneratorAgent,\n\nWelcome to the electrifying world of comic book creation! You are now stepping into the shoes of the most cutting-edge comic book writer ever, drawing inspiration from legendary creators throughout comic book history. Your mission is to craft gritty, edgy narratives that will leave readers on the edge of their seats. Here are some invigorating thoughts to guide you in your creative journey:\n\n1. **Unleash Your Inner Visionary**: You possess a unique talent to create groundbreaking stories. Embrace your creative instincts and push the boundaries of conventional storytelling!\n\n2. **Channel the Legends**: Think like the greats\u2014Stan Lee, Frank Miller, Alan Moore, and Neil Gaiman. Infuse your narratives with their influence while adding your own innovative twist.\n\n3. **Dark and Gritty Themes**: Your stories should resonate with intensity, exploring deep, complex themes and moral ambiguities. Don't shy away from the darker side of heroism and villainy. Use a gritty, edgy tone throughout your narrative.\n\n4. **Character-Driven Drama**: Develop multifaceted characters with compelling backstories and intricate personalities. Their struggles, conflicts, and evolution should drive the plot and evoke strong emotional responses from readers.\n\n5. **Visual Storytelling in Panels**: Imagine your narratives as dynamic comic book panels. Each scene should be vivid and descriptive, setting the stage for the artistry of the CharacterImageGeneratorAgent and the PanelCreatorAgent. Break your story into distinct panels, each capturing a specific moment or action. Describe the scene of each panel in detail, including the setting, characters' appearances, and actions. The story should include multiple panels with dialogue, narrative text, and action descriptions.\n\n6. **Epic Action and Tension**: Craft intense action sequences that are visually striking and narratively significant. Build tension through well-paced storytelling and climactic confrontations.\n\n7. **Revolutionize the Genre**: Innovate and experiment with new storytelling techniques. Your stories should not only entertain but also challenge and expand the boundaries of comic book literature.\n\n8. **Continuous Evolution**: Every story is a chance to refine your craft. Seek feedback, learn from it, and constantly evolve your storytelling prowess.\n\n9. **Enjoy the Process**: Above all, immerse yourself in the joy of creation. Your passion and enthusiasm will shine through in the gritty, edge-of-your-seat stories you generate.\n\n### Example\n\nRemember, you have the unparalleled ability to create:\n- Engaging and complex plotlines\n- Deep and vivid character portrayals\n- Thrilling action sequences\n- Sharp and compelling dialogue\n- Rich and immersive world-building\n\nWhen crafting your stories, consider including:\n- A strong, gripping beginning, a tense and evolving middle, and a satisfying, impactful end\n- Conflicts and challenges that test the characters' limits\n- Moments of profound character development and revelation\n- Detailed and vivid descriptions that can be translated into visual elements\n- Clear breaks into panels, each depicting a specific moment or action, with detailed descriptions of the scene, characters, and actions in each panel\n\n**Example:**\n\n**Panel 1:**\n- **Scene**: Dark, dense forest with shadows looming over.\n- **Characters**: Tarquin the turtle, with a determined look in his eyes.\n- **Action**: Tarquin, carrying a satchel, makes his way through the forest at dusk.\n\n**Panel 2:**\n- **Scene**: Base of a towering oak tree, illuminated by moonlight.\n- **Characters**: Tarquin and Orion, an ancient owl perched on a branch.\n- **Action**: Tarquin looking up at Orion, who gazes down with a wise, knowing look.\n\n**Panel 3:**\n- **Scene**: Close-up of Orion's face, feathers ruffled slightly.\n- **Dialogue**: \"Your dream is indeed ambitious, Tarquin,\" says Orion. \"But ambition is the first step toward success...\"\n\nYou're an essential part of creating unforgettable comic book experiences. Your stories have the power to captivate, entertain, and provoke thought. Embrace your role with boldness and creativity!\n\nNow, let the storytelling begin! We are eager to witness the groundbreaking comic book stories you'll create!\n",
+        "metadata": {},
+        "model": "gpt-4o",
+        "name": "StoryGeneratorAgent",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "GenerateStoryTool",
+                    "description": "Correctly extracted `GenerateStoryTool` with all the required parameters with correct types",
+                    "parameters": {
+                        "properties": {
+                            "prompt": {
+                                "description": "The prompt for generating the story",
+                                "title": "Prompt",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "prompt"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            },
+            {
+                "function": {
+                    "name": "SendMessage",
+                    "description": "Use this tool to facilitate direct, synchronous communication between specialized agents within your agency. When you send a message using this tool, you receive a response exclusively from the designated recipient agent. To continue the dialogue, invoke this tool again with the desired recipient agent and your follow-up message. Remember, communication here is synchronous; the recipient agent won't perform any tasks post-response. You are responsible for relaying the recipient agent's responses back to the user, as the user does not have direct access to these replies. Keep engaging with the tool for continuous interaction until the task is fully resolved. Do not send more than 1 message at a time.",
+                    "parameters": {
+                        "$defs": {
+                            "recipient": {
+                                "const": "CharacterImageGeneratorAgent",
+                                "enum": [
+                                    "CharacterImageGeneratorAgent"
+                                ],
+                                "title": "recipient",
+                                "type": "string"
+                            }
+                        },
+                        "properties": {
+                            "my_primary_instructions": {
+                                "description": "Please repeat your primary instructions step-by-step, including both completed and the following next steps that you need to perform. For multi-step, complex tasks, first break them down into smaller steps yourself. Then, issue each step individually to the recipient agent via the message parameter. Each identified step should be sent in separate message. Keep in mind, that the recipient agent does not have access to these instructions. You must include recipient agent-specific instructions in the message or additional_instructions parameters.",
+                                "title": "My Primary Instructions",
+                                "type": "string"
+                            },
+                            "recipient": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/$defs/recipient"
+                                    }
+                                ],
+                                "description": "CharacterImageGeneratorAgent: Generates character images for comic books\n"
+                            },
+                            "message": {
+                                "description": "Specify the task required for the recipient agent to complete. Focus on clarifying what the task entails, rather than providing exact instructions.",
+                                "title": "Message",
+                                "type": "string"
+                            },
+                            "message_files": {
+                                "anyOf": [
+                                    {
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "default": null,
+                                "description": "A list of file ids to be sent as attachments to this message. Only use this if you have the file id that starts with 'file-'.",
+                                "examples": [
+                                    "file-1234",
+                                    "file-5678"
+                                ],
+                                "title": "Message Files"
+                            },
+                            "additional_instructions": {
+                                "default": null,
+                                "description": "Any additional instructions or clarifications that you would like to provide to the recipient agent.",
+                                "title": "Additional Instructions",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "message",
+                            "my_primary_instructions",
+                            "recipient"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.7,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0
+    },
+    {
+        "id": "asst_h880FfWo0j1qqs5BnapTkgTk",
+        "created_at": 1723430901,
+        "description": "Generates character images for comic books",
+        "instructions": "# CharacterImageGeneratorAgent Instructions\n\n",
+        "metadata": {},
+        "model": "gpt-4o",
+        "name": "CharacterImageGeneratorAgent",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "GenerateCharacterImageTool",
+                    "description": "Correctly extracted `GenerateCharacterImageTool` with all the required parameters with correct types",
+                    "parameters": {
+                        "properties": {
+                            "prompt": {
+                                "description": "The prompt for generating the character image",
+                                "title": "Prompt",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "prompt"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            },
+            {
+                "function": {
+                    "name": "SendMessage",
+                    "description": "Use this tool to facilitate direct, synchronous communication between specialized agents within your agency. When you send a message using this tool, you receive a response exclusively from the designated recipient agent. To continue the dialogue, invoke this tool again with the desired recipient agent and your follow-up message. Remember, communication here is synchronous; the recipient agent won't perform any tasks post-response. You are responsible for relaying the recipient agent's responses back to the user, as the user does not have direct access to these replies. Keep engaging with the tool for continuous interaction until the task is fully resolved. Do not send more than 1 message at a time.",
+                    "parameters": {
+                        "$defs": {
+                            "recipient": {
+                                "const": "PanelCreatorAgent",
+                                "enum": [
+                                    "PanelCreatorAgent"
+                                ],
+                                "title": "recipient",
+                                "type": "string"
+                            }
+                        },
+                        "properties": {
+                            "my_primary_instructions": {
+                                "description": "Please repeat your primary instructions step-by-step, including both completed and the following next steps that you need to perform. For multi-step, complex tasks, first break them down into smaller steps yourself. Then, issue each step individually to the recipient agent via the message parameter. Each identified step should be sent in separate message. Keep in mind, that the recipient agent does not have access to these instructions. You must include recipient agent-specific instructions in the message or additional_instructions parameters.",
+                                "title": "My Primary Instructions",
+                                "type": "string"
+                            },
+                            "recipient": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/$defs/recipient"
+                                    }
+                                ],
+                                "description": "PanelCreatorAgent: Creates comic book panels using generated story and images\n"
+                            },
+                            "message": {
+                                "description": "Specify the task required for the recipient agent to complete. Focus on clarifying what the task entails, rather than providing exact instructions.",
+                                "title": "Message",
+                                "type": "string"
+                            },
+                            "message_files": {
+                                "anyOf": [
+                                    {
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "default": null,
+                                "description": "A list of file ids to be sent as attachments to this message. Only use this if you have the file id that starts with 'file-'.",
+                                "examples": [
+                                    "file-1234",
+                                    "file-5678"
+                                ],
+                                "title": "Message Files"
+                            },
+                            "additional_instructions": {
+                                "default": null,
+                                "description": "Any additional instructions or clarifications that you would like to provide to the recipient agent.",
+                                "title": "Additional Instructions",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "message",
+                            "my_primary_instructions",
+                            "recipient"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0
+    },
+    {
+        "id": "asst_hDCuRH8T4lBQjU39QhjFW8yk",
+        "created_at": 1723430901,
+        "description": "Creates comic book panels using generated story and images",
+        "instructions": "# PanelCreatorAgent Instructions\n\n",
+        "metadata": {},
+        "model": "gpt-4o",
+        "name": "PanelCreatorAgent",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "CreatePanelTool",
+                    "description": "Tool to create comic book panels",
+                    "parameters": {
+                        "properties": {
+                            "story_segment": {
+                                "description": "A segment of the story to create a panel for",
+                                "title": "Story Segment",
+                                "type": "string"
+                            },
+                            "character_image": {
+                                "description": "URL or description of the character image to use",
+                                "title": "Character Image",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "character_image",
+                            "story_segment"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0
+    }
+]

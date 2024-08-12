@@ -1,0 +1,75 @@
+{
+    "task_id": "0ad5abe0-0b39-483d-ad37-7ed3cecad129",
+    "name": "\"Max\"",
+    "prompt": "{ \"appearance\": \"Max is a large Great Dane with a sleek, short coat that gleams in the sunlight. His fur is a rich fawn color, complemented by a distinctive black mask that enhances his expressive, friendly brown eyes. He has long, muscular legs and a dignified stance that exudes strength and grace.\", \"clothing\": \"Max doesn't wear clothing, but his collar is a vibrant blue with a shiny silver tag that jingles softly when he moves. The collar adds a pop of color against his fawn coat.\", \"notable_features\": \"Max has large, floppy ears that perk up when he's excited. His tail is long and strong, wagging energetically in sync with Rocco's tail.\" }, \"Rocco\": { \"appearance\": \"Rocco is a muscular Rottweiler with a powerful build, showcasing his strength and confidence. His coat is a deep black with rust-colored markings on his muzzle, chest, and legs. His eyes are dark and expressive, often sparkling with mischief and a hint of challenge.\", \"clothing\": \"Similar to Max, Rocco does not wear clothing. He sports a thick black collar with a bold red pattern, suggesting a bit of flair that matches his confident personality.\", \"notable_features\": \"Rocco has a broad head with a strong jaw and wide-set ears that stand alert. His posture is always assertive, and his tail is short yet powerful, often wagging vigorously when he\u2019s energized.\" } } ```",
+    "status_response": {
+        "task_id": "0ad5abe0-0b39-483d-ad37-7ed3cecad129",
+        "status": "finished",
+        "process_time": 206,
+        "retry_count": 0,
+        "meta": {
+            "account_id": "6000",
+            "task_type": "imagine",
+            "origin_task_id": "",
+            "bot_hash": "",
+            "bot_id": 0,
+            "transaction_id": 0,
+            "model_version": "unknown",
+            "process_mode": "relax",
+            "quota_frozen": 14,
+            "frozen_credit": 0,
+            "mj_failover_triggered": false,
+            "created_at": 1723451889,
+            "created_at_utc": "2024-08-12 08:38:09 +0000 UTC",
+            "started_at": 1723451905,
+            "started_at_utc": "2024-08-12 08:38:25 +0000 UTC",
+            "ended_at": 1723452111,
+            "ended_at_utc": "2024-08-12 08:41:51 +0000 UTC",
+            "task_request": {
+                "aspect_ratio": "1:1",
+                "auto_upload": false,
+                "bot_id": 0,
+                "process_mode": "relax",
+                "prompt": "\"Max\", comic book character, portrait",
+                "skip_prompt_check": false,
+                "skip_retry": false,
+                "upload_prompt_image": false
+            },
+            "task_param": {
+                "prompt": "\"Max\", comic book character, portrait --relax",
+                "index": "",
+                "zoom_ratio": "2",
+                "aspect_ratio": "1:1",
+                "direction": ""
+            }
+        },
+        "task_result": {
+            "discord_image_url": "https://img.midjourneyapi.xyz/mj/0ad5abe0-0b39-483d-ad37-7ed3cecad129.png",
+            "image_url": "https://img.midjourneyapi.xyz/mj/0ad5abe0-0b39-483d-ad37-7ed3cecad129.png",
+            "image_urls": [],
+            "permanent_url": "",
+            "task_progress": 0,
+            "intermediate_image_urls": null,
+            "image_id": "",
+            "seed": "",
+            "result_message_id": "",
+            "quota_used": 6,
+            "credit": 0,
+            "message": "",
+            "warning": "",
+            "error_messages": [],
+            "need_retry": true,
+            "actions": [
+                "reroll",
+                "upscale1",
+                "upscale2",
+                "upscale3",
+                "upscale4",
+                "variation1",
+                "variation2",
+                "variation3",
+                "variation4"
+            ]
+        }
+    }
+}
