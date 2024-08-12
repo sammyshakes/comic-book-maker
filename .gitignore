@@ -1,3 +1,7 @@
+#app specific files
+task_ids.txt
+generated_images/
+
 # Logs
 logs
 *.log
